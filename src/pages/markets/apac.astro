@@ -9,7 +9,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
                 class="flex items-center space-x-2 text-sm uppercase tracking-widest text-accent-terra font-mono mb-4"
             >
                 <a
-                    href="/markets"
+                    href={import.meta.env.BASE_URL === "/"
+                        ? "/markets"
+                        : import.meta.env.BASE_URL + "/markets"}
                     class="hover:text-text-primary transition-colors"
                     >&larr; Back to Markets</a
                 >
