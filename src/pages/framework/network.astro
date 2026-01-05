@@ -20,7 +20,9 @@ const mentors = network.filter((n) => n.category === "mentor");
                 class="flex items-center space-x-2 text-sm uppercase tracking-widest text-text-primary/60 font-mono mb-4"
             >
                 <a
-                    href="/framework"
+                    href={import.meta.env.BASE_URL === "/"
+                        ? "/framework"
+                        : import.meta.env.BASE_URL + "/framework"}
                     class="hover:text-text-primary transition-colors"
                     >&larr; Back to Framework</a
                 >
