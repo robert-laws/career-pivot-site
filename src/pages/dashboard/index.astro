@@ -69,7 +69,9 @@ const currentPhase = "Phase 1: Foundation";
                     </div>
                 </div>
                 <a
-                    href="/framework/skills"
+                    href={import.meta.env.BASE_URL === "/"
+                        ? "/framework/skills"
+                        : import.meta.env.BASE_URL + "/framework/skills"}
                     class="text-sm font-bold hover:text-accent-sage transition-colors"
                     >View Tracker &rarr;</a
                 >
@@ -92,7 +94,9 @@ const currentPhase = "Phase 1: Foundation";
                     > featured items
                 </div>
                 <a
-                    href="/framework/portfolio"
+                    href={import.meta.env.BASE_URL === "/"
+                        ? "/framework/portfolio"
+                        : import.meta.env.BASE_URL + "/framework/portfolio"}
                     class="text-sm font-bold hover:text-accent-terra transition-colors"
                     >View Gallery &rarr;</a
                 >
@@ -115,7 +119,9 @@ const currentPhase = "Phase 1: Foundation";
                     > strong relationships
                 </div>
                 <a
-                    href="/framework/network"
+                    href={import.meta.env.BASE_URL === "/"
+                        ? "/framework/network"
+                        : import.meta.env.BASE_URL + "/framework/network"}
                     class="text-sm font-bold hover:text-accent-sage transition-colors"
                     >View Map &rarr;</a
                 >

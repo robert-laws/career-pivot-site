@@ -17,7 +17,10 @@ const paths = [
         role: "Independent / Hybrid Practice",
         description:
             "Independent or hybrid training and consulting practice focused on AI and data literacy for information professionals and corporate teams.",
-        link: "/paths/ai-consulting",
+        link:
+            import.meta.env.BASE_URL === "/"
+                ? "/paths/ai-consulting"
+                : import.meta.env.BASE_URL + "/paths/ai-consulting",
         highlight: true,
         data: {
             alignment: "High",
