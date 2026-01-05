@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const organizations = [
+    "Qatar Investment Authority (QIA)",
+    "Qatar Foundation (QF)",
+    "Qatar National Library (QNL)",
+    "Ministry of Communications and Information Technology (MCIT)",
+];
+---
+
+<BaseLayout title="Gulf Market Strategy">
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-20">
+            <div
+                class="flex items-center space-x-2 text-sm uppercase tracking-widest text-accent-sage font-mono mb-4"
+            >
+                <a
+                    href="/markets"
+                    class="hover:text-text-primary transition-colors"
+                    >&larr; Back to Markets</a
+                >
+                <span>/</span>
+                <span>Primary Focus</span>
+            </div>
+            <h1 class="text-6xl font-bold mb-8">Building in the Gulf</h1>
+            <p class="text-2xl opacity-70 leading-relaxed">
+                Capitalizing on 17 years of embedded experience to deliver
+                high-value AI literacy to sovereign and educational entities.
+            </p>
+        </header>
+
+        <div class="grid md:grid-cols-2 gap-16 mb-24">
+            <div>
+                <h2 class="text-2xl font-bold mb-6 text-accent-sage">
+                    The Advantage
+                </h2>
+                <ul class="space-y-4 leading-relaxed opacity-80">
+                    <li class="flex items-start">
+                        <span class="mr-2 text-accent-sage">✔</span>Deep
+                        understanding of local business etiquette and
+                        relationship dynamics.
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 text-accent-sage">✔</span>Brand
+                        association with Georgetown University and Education
+                        City.
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 text-accent-sage">✔</span>Proven track
+                        record delivering training to QIA stakeholders.
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold mb-6">The Challenge</h2>
+                <ul class="space-y-4 leading-relaxed opacity-80">
+                    <li class="flex items-start">
+                        <span class="mr-2 text-red-700/50">⚠</span>Long
+                        procurement cycles for government contracts.
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 text-red-700/50">⚠</span>Structuring
+                        independent work alongside institutional visa
+                        constraints.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="mb-24">
+            <h2
+                class="text-3xl font-bold mb-8 border-b border-text-primary/10 pb-4"
+            >
+                Target Organizations
+            </h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                {
+                    organizations.map((org) => (
+                        <div class="p-6 border border-text-primary/10 bg-white/40 font-bold hover:border-accent-sage transition-colors">
+                            {org}
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
+
+        <section class="bg-white p-8 border border-text-primary/5">
+            <h2 class="text-xl font-bold mb-4">Immediate Action Plan</h2>
+            <ol class="list-decimal list-outside ml-4 space-y-2 opacity-80">
+                <li>Formalize the "AI for Research" workshop curriculum.</li>
+                <li>
+                    Schedule follow-up coffee meetings with QIA contacts from
+                    Nov training.
+                </li>
+                <li>
+                    Investigate freelance permit options in Qatar Financial
+                    Centre (QFC).
+                </li>
+            </ol>
+        </section>
+    </div>
+</BaseLayout>

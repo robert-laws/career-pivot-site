@@ -1,0 +1,202 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import skills from "../../data/skills.json";
+import portfolio from "../../data/portfolio.json";
+import network from "../../data/network.json";
+
+// Calculate Stats
+const skillsTotal = skills.length;
+const skillsCompleted = skills.filter((s) => s.status === "completed").length;
+const skillsInProgress = skills.filter(
+    (s) => s.status === "in-progress",
+).length;
+
+const portfolioTotal = portfolio.length;
+const portfolioFeatured = portfolio.filter((p) => p.featured).length;
+
+const networkTotal = network.length;
+const networkStrong = network.filter(
+    (n) => n.relationshipStrength === "strong",
+).length;
+
+const currentPhase = "Phase 1: Foundation";
+---
+
+<BaseLayout title="Dashboard">
+    <div class="max-w-6xl mx-auto">
+        <header
+            class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+        >
+            <div>
+                <h1 class="text-6xl md:text-7xl font-bold mb-4">Dashboard</h1>
+                <p class="text-xl opacity-70">Strategic command center.</p>
+            </div>
+            <div
+                class="bg-white border border-text-primary/10 px-6 py-3 flex items-center gap-3"
+            >
+                <div class="flex flex-col text-right">
+                    <span
+                        class="text-xs font-mono uppercase tracking-widest opacity-50"
+                        >Current Status</span
+                    >
+                    <span class="font-bold text-accent-sage"
+                        >{currentPhase}</span
+                    >
+                </div>
+            </div>
+        </header>
+
+        <!-- KPI Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <!-- Skills KPI -->
+            <div class="p-8 border-t-2 border-text-primary/20 bg-white/40">
+                <h3
+                    class="text-xs font-mono uppercase tracking-widest opacity-60 mb-2"
+                >
+                    Skill Acquisition
+                </h3>
+                <div class="flex items-baseline gap-2 mb-4">
+                    <span class="text-5xl font-bold">{skillsInProgress}</span>
+                    <span class="opacity-50 text-sm"
+                        >active / {skillsTotal} total</span
+                    >
+                </div>
+                <div class="w-full bg-text-primary/10 h-1.5 mb-4">
+                    <div
+                        class="bg-accent-sage h-1.5"
+                        style={`width: ${(skillsCompleted / skillsTotal) * 100}%`}
+                    >
+                    </div>
+                </div>
+                <a
+                    href="/framework/skills"
+                    class="text-sm font-bold hover:text-accent-sage transition-colors"
+                    >View Tracker &rarr;</a
+                >
+            </div>
+
+            <!-- Portfolio KPI -->
+            <div class="p-8 border-t-2 border-text-primary/20 bg-white/40">
+                <h3
+                    class="text-xs font-mono uppercase tracking-widest opacity-60 mb-2"
+                >
+                    Portfolio
+                </h3>
+                <div class="flex items-baseline gap-2 mb-4">
+                    <span class="text-5xl font-bold">{portfolioTotal}</span>
+                    <span class="opacity-50 text-sm">items</span>
+                </div>
+                <div class="flex gap-2 text-sm opacity-70 mb-5">
+                    <span class="font-bold text-text-primary"
+                        >{portfolioFeatured}</span
+                    > featured items
+                </div>
+                <a
+                    href="/framework/portfolio"
+                    class="text-sm font-bold hover:text-accent-terra transition-colors"
+                    >View Gallery &rarr;</a
+                >
+            </div>
+
+            <!-- Network KPI -->
+            <div class="p-8 border-t-2 border-text-primary/20 bg-white/40">
+                <h3
+                    class="text-xs font-mono uppercase tracking-widest opacity-60 mb-2"
+                >
+                    Network
+                </h3>
+                <div class="flex items-baseline gap-2 mb-4">
+                    <span class="text-5xl font-bold">{networkTotal}</span>
+                    <span class="opacity-50 text-sm">contacts</span>
+                </div>
+                <div class="flex gap-2 text-sm opacity-70 mb-5">
+                    <span class="font-bold text-text-primary"
+                        >{networkStrong}</span
+                    > strong relationships
+                </div>
+                <a
+                    href="/framework/network"
+                    class="text-sm font-bold hover:text-accent-sage transition-colors"
+                    >View Map &rarr;</a
+                >
+            </div>
+        </div>
+
+        <!-- Recent Activity / Priorities -->
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="border border-text-primary/10 p-8 bg-white/60">
+                <h2 class="text-2xl font-bold mb-6">Priority Actions</h2>
+                <ul class="space-y-4">
+                    <li
+                        class="flex items-start gap-4 p-3 border-b border-text-primary/5"
+                    >
+                        <span class="text-accent-terra font-bold">01</span>
+                        <div>
+                            <p class="font-medium">
+                                Complete Tableau Certification Renewal
+                            </p>
+                            <span
+                                class="text-xs opacity-50 uppercase tracking-wide"
+                                >Target: Jan 30</span
+                            >
+                        </div>
+                    </li>
+                    <li
+                        class="flex items-start gap-4 p-3 border-b border-text-primary/5"
+                    >
+                        <span class="text-accent-terra font-bold">02</span>
+                        <div>
+                            <p class="font-medium">
+                                Draft outreach email for Singapore conference
+                            </p>
+                            <span
+                                class="text-xs opacity-50 uppercase tracking-wide"
+                                >Target: Feb 15</span
+                            >
+                        </div>
+                    </li>
+                    <li
+                        class="flex items-start gap-4 p-3 border-b border-text-primary/5"
+                    >
+                        <span class="text-accent-terra font-bold">03</span>
+                        <div>
+                            <p class="font-medium">
+                                Finalize QIA Case Study PDF
+                            </p>
+                            <span
+                                class="text-xs opacity-50 uppercase tracking-wide"
+                                >Target: Feb 20</span
+                            >
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="border border-text-primary/10 p-8 bg-white/30">
+                <h2 class="text-2xl font-bold mb-6">System Health</h2>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="opacity-70">Documentation</span>
+                            <span class="font-bold">90%</span>
+                        </div>
+                        <div class="w-full bg-text-primary/10 h-1">
+                            <div class="bg-green-600 h-1" style="width: 90%">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="opacity-70">Network Velocity</span>
+                            <span class="font-bold">Low</span>
+                        </div>
+                        <div class="w-full bg-text-primary/10 h-1">
+                            <div class="bg-yellow-600 h-1" style="width: 30%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</BaseLayout>

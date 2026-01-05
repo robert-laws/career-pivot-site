@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Markets">
+    <div class="max-w-5xl mx-auto">
+        <h1 class="text-6xl md:text-8xl font-bold mb-8">Target Markets</h1>
+        <p class="text-2xl opacity-70 mb-16 leading-relaxed max-w-3xl">
+            Geographic focus areas for maximizing network leverage and capturing
+            emerging demand.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Gulf / MENA -->
+            <div class="p-8 border border-text-primary/10 bg-white/60">
+                <div class="mb-8">
+                    <span
+                        class="text-xs font-mono uppercase tracking-widest text-accent-sage mb-2 block"
+                        >Primary Market</span
+                    >
+                    <h2 class="text-4xl font-bold mb-4">Gulf / MENA</h2>
+                    <p class="opacity-70 mb-6">
+                        Leveraging 17+ years of in-region experience, cultural
+                        fluency, and the Qatar National Vision 2030 momentum.
+                    </p>
+                    <ul class="space-y-2 text-sm opacity-80 mb-8">
+                        <li class="flex items-center">
+                            <span
+                                class="w-1.5 h-1.5 rounded-full bg-accent-sage mr-2"
+                            ></span>Strong existing network (QF, QIA)
+                        </li>
+                        <li class="flex items-center">
+                            <span
+                                class="w-1.5 h-1.5 rounded-full bg-accent-sage mr-2"
+                            ></span>High demand for Arabic-contextualized
+                            training
+                        </li>
+                        <li class="flex items-center">
+                            <span
+                                class="w-1.5 h-1.5 rounded-full bg-accent-sage mr-2"
+                            ></span>Preference for in-person delivery
+                        </li>
+                    </ul>
+                </div>
+                <a
+                    href="/markets/gulf"
+                    class="inline-block px-6 py-3 bg-text-primary text-white font-bold text-sm tracking-wide hover:bg-accent-sage transition-colors"
+                >
+                    View Gulf Strategy
+                </a>
+            </div>
+
+            <!-- APAC -->
+            <div class="p-8 border border-text-primary/10 bg-white/30">
+                <div class="mb-8">
+                    <span
+                        class="text-xs font-mono uppercase tracking-widest text-accent-terra mb-2 block"
+                        >Growth Market</span
+                    >
+                    <h2 class="text-4xl font-bold mb-4">Asia-Pacific</h2>
+                    <p class="opacity-70 mb-6">
+                        A high-growth frontier requiring strategic entry via
+                        Singapore hubs and academic conference circuits.
+                    </p>
+                    <ul class="space-y-2 text-sm opacity-80 mb-8">
+                        <li class="flex items-center">
+                            <span
+                                class="w-1.5 h-1.5 rounded-full bg-accent-terra mr-2"
+                            ></span>Singapore as regional HQ hub
+                        </li>
+                        <li class="flex items-center">
+                            <span
+                                class="w-1.5 h-1.5 rounded-full bg-accent-terra mr-2"
+                            ></span>Strong higher-ed sector (Australia/HK)
+                        </li>
+                        <li class="flex items-center">
+                            <span
+                                class="w-1.5 h-1.5 rounded-full bg-accent-terra mr-2"
+                            ></span>Opportunity for virtual/hybrid models
+                        </li>
+                    </ul>
+                </div>
+                <a
+                    href="/markets/apac"
+                    class="inline-block px-6 py-3 border border-text-primary/20 font-bold text-sm tracking-wide hover:border-text-primary hover:bg-text-primary hover:text-white transition-all"
+                >
+                    View APAC Strategy
+                </a>
+            </div>
+        </div>
+    </div>
+</BaseLayout>

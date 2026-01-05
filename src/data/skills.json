@@ -1,0 +1,13 @@
+[
+    {
+        "id": "skill-001",
+        "name": "Advanced Power BI",
+        "category": "technical",
+        "priority": "important",
+        "currentLevel": "developing",
+        "acquisitionMethod": "LinkedIn Learning course + practice projects",
+        "targetDate": "2026-06-01",
+        "status": "in-progress",
+        "notes": "Focus on DAX formulas and enterprise deployment"
+    }
+]

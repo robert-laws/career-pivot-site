@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PortfolioItem from "../../components/PortfolioItem.astro";
+import portfolio from "../../data/portfolio.json";
+
+const trainingItems = portfolio.filter((i) => i.type === "training");
+const thoughtLeadershipItems = portfolio.filter(
+    (i) => i.type === "thought-leadership",
+);
+const caseStudies = portfolio.filter((i) => i.type === "case-study");
+const credentials = portfolio.filter((i) => i.type === "credential");
+---
+
+<BaseLayout title="Portfolio Building">
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-16">
+            <div
+                class="flex items-center space-x-2 text-sm uppercase tracking-widest text-accent-terra font-mono mb-4"
+            >
+                <a
+                    href="/framework"
+                    class="hover:text-text-primary transition-colors"
+                    >&larr; Back to Framework</a
+                >
+                <span>/</span>
+                <span>Pillar 02</span>
+            </div>
+            <h1 class="text-6xl font-bold mb-6">Portfolio Building</h1>
+            <p class="text-xl opacity-70 max-w-3xl leading-relaxed">
+                The proof of competence. Concrete artifacts that demonstrate
+                value to potential clients.
+            </p>
+        </header>
+
+        <div class="space-y-20">
+            <!-- Case Studies (Priority) -->
+            <section>
+                <h2 class="text-3xl font-bold mb-8">Case Studies</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    {
+                        caseStudies.length > 0 ? (
+                            caseStudies.map((item) => (
+                                <PortfolioItem item={item} />
+                            ))
+                        ) : (
+                            <div class="col-span-2 p-8 border border-dashed border-text-primary/20 bg-white/30 text-center opacity-60">
+                                No case studies added yet.{" "}
+                                <span class="block text-sm mt-2">
+                                    Priority: Add QIA Engagement.
+                                </span>
+                            </div>
+                        )
+                    }
+                </div>
+            </section>
+
+            <!-- Training Deliverables -->
+            <section>
+                <h2 class="text-3xl font-bold mb-8">Training Deliverables</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        trainingItems.length > 0 ? (
+                            trainingItems.map((item) => (
+                                <PortfolioItem item={item} />
+                            ))
+                        ) : (
+                            <div class="col-span-full p-6 border border-dashed border-text-primary/20 opacity-50">
+                                No training items yet.
+                            </div>
+                        )
+                    }
+                </div>
+            </section>
+
+            <!-- Thought Leadership -->
+            <section>
+                <h2 class="text-3xl font-bold mb-8">Thought Leadership</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        thoughtLeadershipItems.length > 0 ? (
+                            thoughtLeadershipItems.map((item) => (
+                                <PortfolioItem item={item} />
+                            ))
+                        ) : (
+                            <div class="col-span-full p-6 border border-dashed border-text-primary/20 opacity-50">
+                                No thought leadership items yet.
+                            </div>
+                        )
+                    }
+                </div>
+            </section>
+
+            <!-- Credentials -->
+            <section>
+                <h2 class="text-3xl font-bold mb-8 opacity-60">Credentials</h2>
+                <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {
+                        credentials.length > 0 ? (
+                            credentials.map((item) => (
+                                <PortfolioItem item={item} />
+                            ))
+                        ) : (
+                            <div class="col-span-full p-6 border border-dashed border-text-primary/20 opacity-50">
+                                No credentials listed yet.
+                            </div>
+                        )
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+</BaseLayout>

@@ -1,0 +1,113 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactCard from "../../components/ContactCard.astro";
+import network from "../../data/network.json";
+
+const potentialClients = network.filter(
+    (n) => n.category === "potential-client",
+);
+const referralPartners = network.filter(
+    (n) => n.category === "referral-partner",
+);
+const peers = network.filter((n) => n.category === "peer");
+const mentors = network.filter((n) => n.category === "mentor");
+---
+
+<BaseLayout title="Network Development">
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-16">
+            <div
+                class="flex items-center space-x-2 text-sm uppercase tracking-widest text-text-primary/60 font-mono mb-4"
+            >
+                <a
+                    href="/framework"
+                    class="hover:text-text-primary transition-colors"
+                    >&larr; Back to Framework</a
+                >
+                <span>/</span>
+                <span>Pillar 03</span>
+            </div>
+            <h1 class="text-6xl font-bold mb-6">Network Map</h1>
+            <p class="text-xl opacity-70 max-w-3xl leading-relaxed">
+                Relationship capital. The primary driver of consulting revenue
+                and opportunities.
+            </p>
+        </header>
+
+        <div class="space-y-16">
+            <section>
+                <h2 class="text-2xl font-bold mb-6 text-accent-sage">
+                    Potential Clients
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        potentialClients.length > 0 ? (
+                            potentialClients.map((contact) => (
+                                <ContactCard contact={contact} />
+                            ))
+                        ) : (
+                            <div class="p-6 border border-dashed border-text-primary/20 opacity-50 col-span-full">
+                                No potential clients tracked yet.
+                            </div>
+                        )
+                    }
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold mb-6 text-accent-terra">
+                    Referral Partners
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        referralPartners.length > 0 ? (
+                            referralPartners.map((contact) => (
+                                <ContactCard contact={contact} />
+                            ))
+                        ) : (
+                            <div class="p-6 border border-dashed border-text-primary/20 opacity-50 col-span-full">
+                                No referral partners tracked yet.
+                            </div>
+                        )
+                    }
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold mb-6">Peers & Community</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        peers.length > 0 ? (
+                            peers.map((contact) => (
+                                <ContactCard contact={contact} />
+                            ))
+                        ) : (
+                            <div class="p-6 border border-dashed border-text-primary/20 opacity-50 col-span-full">
+                                No peers tracked yet.
+                            </div>
+                        )
+                    }
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold mb-6 opacity-60">
+                    Mentors & Advisors
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        mentors.length > 0 ? (
+                            mentors.map((contact) => (
+                                <ContactCard contact={contact} />
+                            ))
+                        ) : (
+                            <div class="p-6 border border-dashed border-text-primary/20 opacity-50 col-span-full">
+                                No mentors tracked yet.
+                            </div>
+                        )
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+</BaseLayout>

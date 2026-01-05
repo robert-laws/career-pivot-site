@@ -1,0 +1,14 @@
+[
+    {
+        "id": "contact-001",
+        "name": "Jane Smith",
+        "organization": "Singapore Management University",
+        "role": "Director of Executive Education",
+        "category": "potential-client",
+        "region": "apac",
+        "relationshipStrength": "new",
+        "lastContact": "2025-12-15",
+        "nextAction": "Follow up after IASSIST presentation",
+        "notes": "Met at conference, interested in AI literacy program"
+    }
+]

@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const currentPhase = "Phase 1: Foundation Building";
+---
+
+<BaseLayout title="Home">
+	<section class="max-w-4xl mb-24 md:mb-32">
+		<h1
+			class="text-5xl md:text-7xl lg:text-8xl leading-[1.1] md:leading-[1] mb-8 font-bold text-text-primary"
+		>
+			Strategic Pivot: <br />
+			<span class="text-accent-sage">AI & Data Literacy</span> Training.
+		</h1>
+		<p
+			class="text-lg md:text-2xl leading-relaxed text-text-primary opacity-80 max-w-2xl"
+		>
+			A roadmap for transitioning from senior academic librarianship to an
+			independent consultation and training practice.
+		</p>
+
+		<div
+			class="mt-8 inline-flex items-center space-x-3 px-4 py-2 border border-accent-sage rounded-full text-sm font-medium tracking-wide uppercase bg-white/50"
+		>
+			<span class="w-2 h-2 rounded-full bg-accent-sage animate-pulse"
+			></span>
+			<span>Current Status: {currentPhase}</span>
+		</div>
+	</section>
+
+	<section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+		<!-- Career Paths Card -->
+		<a
+			href="/paths"
+			class="group block p-8 border border-text-primary/10 hover:border-accent-terra transition-all duration-300 hover:shadow-lg bg-white/40"
+		>
+			<span
+				class="text-xs font-mono uppercase tracking-wider text-accent-terra mb-4 block group-hover:text-text-primary transition-colors"
+				>01. Strategy</span
+			>
+			<h2
+				class="text-3xl mb-4 group-hover:text-accent-terra transition-colors"
+			>
+				Career Paths
+			</h2>
+			<p class="opacity-70 leading-relaxed text-sm">
+				Comparative analysis of three potential directions: Independent
+				Consulting, Academic Leadership, and Ed-Tech.
+			</p>
+			<div
+				class="mt-8 flex items-center text-sm font-medium group-hover:translate-x-2 transition-transform duration-300"
+			>
+				Explore Options &rarr;
+			</div>
+		</a>
+
+		<!-- Framework Card -->
+		<a
+			href="/framework"
+			class="group block p-8 border border-text-primary/10 hover:border-accent-sage transition-all duration-300 hover:shadow-lg bg-white/40"
+		>
+			<span
+				class="text-xs font-mono uppercase tracking-wider text-accent-sage mb-4 block group-hover:text-text-primary transition-colors"
+				>02. Execution</span
+			>
+			<h2
+				class="text-3xl mb-4 group-hover:text-accent-sage transition-colors"
+			>
+				The Framework
+			</h2>
+			<p class="opacity-70 leading-relaxed text-sm">
+				Actionable roadmap for skill acquisition, portfolio building,
+				and network development.
+			</p>
+			<div
+				class="mt-8 flex items-center text-sm font-medium group-hover:translate-x-2 transition-transform duration-300"
+			>
+				View Roadmap &rarr;
+			</div>
+		</a>
+
+		<!-- Markets Card (Dashboard/Markets combined entry for now, or direct to Dashboard?) 
+		     SOP says "Visual navigation to three main areas: Career Paths, Framework, Dashboard" 
+		     But Markets is also a top level item. Let's stick to SOP "Dashboard" as the 3rd key card for the user. 
+		-->
+		<a
+			href="/dashboard"
+			class="group block p-8 border border-text-primary/10 hover:border-text-primary transition-all duration-300 hover:shadow-lg bg-white/40"
+		>
+			<span
+				class="text-xs font-mono uppercase tracking-wider text-text-primary/60 mb-4 block group-hover:text-text-primary transition-colors"
+				>03. Tracking</span
+			>
+			<h2 class="text-3xl mb-4">Dashboard</h2>
+			<p class="opacity-70 leading-relaxed text-sm">
+				Real-time progress monitoring across skills, portfolio items,
+				and key network relationships.
+			</p>
+			<div
+				class="mt-8 flex items-center text-sm font-medium group-hover:translate-x-2 transition-transform duration-300"
+			>
+				Track Progress &rarr;
+			</div>
+		</a>
+	</section>
+</BaseLayout>

@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="APAC Market Strategy">
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-20">
+            <div
+                class="flex items-center space-x-2 text-sm uppercase tracking-widest text-accent-terra font-mono mb-4"
+            >
+                <a
+                    href="/markets"
+                    class="hover:text-text-primary transition-colors"
+                    >&larr; Back to Markets</a
+                >
+                <span>/</span>
+                <span>Growth Focus</span>
+            </div>
+            <h1 class="text-6xl font-bold mb-8">Breaking into APAC</h1>
+            <p class="text-2xl opacity-70 leading-relaxed">
+                A strategic expansion play leveraging Singapore as a hub for
+                regional influence and university partnerships.
+            </p>
+        </header>
+
+        <div class="grid md:grid-cols-2 gap-16 mb-24">
+            <div>
+                <h2 class="text-2xl font-bold mb-6 text-accent-terra">
+                    The Opportunity
+                </h2>
+                <ul class="space-y-4 leading-relaxed opacity-80">
+                    <li class="flex items-start">
+                        <span class="mr-2 text-accent-terra">✔</span>High
+                        English proficiency in business hubs (Singapore, HK,
+                        Sydney).
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 text-accent-terra">✔</span>Strong
+                        university networks valuing "Data Literacy" as a core
+                        competency.
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 text-accent-terra">✔</span>Conferences
+                        (IASSIST, etc.) serving as natural entry points.
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold mb-6">The Gap</h2>
+                <ul class="space-y-4 leading-relaxed opacity-80">
+                    <li class="flex items-start">
+                        <span class="mr-2 text-red-700/50">⚠</span>Zero existing
+                        brand recognition outside of narrow academic circles.
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-2 text-red-700/50">⚠</span>Distance and
+                        time zone challenges for hybrid delivery.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="bg-white p-8 border border-text-primary/5">
+            <h2 class="text-xl font-bold mb-4">
+                Entry Strategy: The "Conference Trojan Horse"
+            </h2>
+            <p class="mb-6 opacity-80">
+                Use academic conference acceptances as the anchor for travel,
+                then bundle corporate/workshop days around the event dates to
+                offset costs and build local leads.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4 text-sm font-mono">
+                <div class="bg-bg-sage p-4">
+                    <span class="block opacity-50 mb-1">Target 01</span>
+                    <strong>Singapore (May)</strong>
+                </div>
+                <div class="bg-bg-sage p-4">
+                    <span class="block opacity-50 mb-1">Target 02</span>
+                    <strong>Melbourne (Aug)</strong>
+                </div>
+                <div class="bg-bg-sage p-4">
+                    <span class="block opacity-50 mb-1">Target 03</span>
+                    <strong>Hong Kong (Nov)</strong>
+                </div>
+            </div>
+        </section>
+    </div>
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+const links = [
+    { href: "/paths", label: "Career Paths" },
+    { href: "/framework", label: "The Framework" },
+    { href: "/markets", label: "Markets" },
+    { href: "/dashboard", label: "Dashboard" },
+];
+
+const { pathname } = Astro.url;
+---
+
+<nav>
+    <ul class="flex space-x-6 md:space-x-10 text-sm md:text-base font-medium">
+        {
+            links.map(({ href, label }) => (
+                <li>
+                    <a
+                        href={href}
+                        class:list={[
+                            "hover:text-accent-terra transition-colors duration-200",
+                            {
+                                "border-b-2 border-accent-sage":
+                                    pathname.startsWith(href),
+                            },
+                        ]}
+                    >
+                        {label}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>

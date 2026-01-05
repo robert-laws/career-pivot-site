@@ -1,0 +1,119 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SkillCard from "../../components/SkillCard.astro";
+import skills from "../../data/skills.json";
+
+const technicalSkills = skills.filter((s) => s.category === "technical");
+const businessSkills = skills.filter((s) => s.category === "business");
+const deliverySkills = skills.filter((s) => s.category === "delivery");
+const marketingSkills = skills.filter((s) => s.category === "marketing");
+---
+
+<BaseLayout title="Skill Acquisition">
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-16">
+            <div
+                class="flex items-center space-x-2 text-sm uppercase tracking-widest text-accent-sage font-mono mb-4"
+            >
+                <a
+                    href="/framework"
+                    class="hover:text-text-primary transition-colors"
+                    >&larr; Back to Framework</a
+                >
+                <span>/</span>
+                <span>Pillar 01</span>
+            </div>
+            <h1 class="text-6xl font-bold mb-6">Skill Acquisition</h1>
+            <p class="text-xl opacity-70 max-w-3xl leading-relaxed">
+                Strategic capability building. Moving beyond academic
+                proficiency to industry authority.
+            </p>
+        </header>
+
+        <div class="space-y-16">
+            <!-- Technical Section -->
+            <section>
+                <h2 class="text-2xl font-bold mb-8 flex items-center">
+                    <span class="w-2 h-8 bg-accent-sage mr-4"></span>
+                    Technical / Content
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        technicalSkills.length > 0 ? (
+                            technicalSkills.map((skill) => (
+                                <SkillCard skill={skill} />
+                            ))
+                        ) : (
+                            <div class="p-6 border border-dashed border-text-primary/20 opacity-50">
+                                No skills tracked in this category yet.
+                            </div>
+                        )
+                    }
+                </div>
+            </section>
+
+            <!-- Business Section -->
+            <section>
+                <h2 class="text-2xl font-bold mb-8 flex items-center">
+                    <span class="w-2 h-8 bg-accent-terra mr-4"></span>
+                    Business & Consulting
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        businessSkills.length > 0 ? (
+                            businessSkills.map((skill) => (
+                                <SkillCard skill={skill} />
+                            ))
+                        ) : (
+                            <div class="p-6 border border-dashed border-text-primary/20 opacity-50">
+                                No skills tracked in this category yet.
+                            </div>
+                        )
+                    }
+                </div>
+            </section>
+
+            <!-- Delivery Section -->
+            <section>
+                <h2 class="text-2xl font-bold mb-8 flex items-center">
+                    <span class="w-2 h-8 bg-text-primary mr-4"></span>
+                    Delivery & Facilitation
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        deliverySkills.length > 0 ? (
+                            deliverySkills.map((skill) => (
+                                <SkillCard skill={skill} />
+                            ))
+                        ) : (
+                            <div class="p-6 border border-dashed border-text-primary/20 opacity-50">
+                                No skills tracked in this category yet.
+                            </div>
+                        )
+                    }
+                </div>
+            </section>
+
+            <!-- Marketing Section -->
+            <section>
+                <h2 class="text-2xl font-bold mb-8 flex items-center">
+                    <span class="w-2 h-8 bg-text-primary/50 mr-4"></span>
+                    Marketing & Visibility
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        marketingSkills.length > 0 ? (
+                            marketingSkills.map((skill) => (
+                                <SkillCard skill={skill} />
+                            ))
+                        ) : (
+                            <div class="p-6 border border-dashed border-text-primary/20 opacity-50">
+                                No skills tracked in this category yet.
+                            </div>
+                        )
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+</BaseLayout>

@@ -1,0 +1,143 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+type MetricKey = "alignment" | "income" | "autonomy" | "geo";
+
+const metrics: { label: string; key: MetricKey }[] = [
+    { label: "Skill Alignment", key: "alignment" },
+    { label: "Income Potential", key: "income" },
+    { label: "Autonomy", key: "autonomy" },
+    { label: "Geo Flexibility", key: "geo" },
+];
+
+const paths = [
+    {
+        id: "consulting",
+        title: "AI/Data Literacy Consulting",
+        role: "Independent / Hybrid Practice",
+        description:
+            "Independent or hybrid training and consulting practice focused on AI and data literacy for information professionals and corporate teams.",
+        link: "/paths/ai-consulting",
+        highlight: true,
+        data: {
+            alignment: "High",
+            income: "Variable / High Ceiling",
+            autonomy: "High",
+            geo: "High",
+        },
+        risk: "Higher Risk",
+        timeline: "1-3 Years",
+    },
+    {
+        id: "academic",
+        title: "Senior Academic Leadership",
+        role: "Library Director / CDO",
+        description:
+            "Executive leadership within university research libraries or data administration roles.",
+        link: "#", // Placeholder or future page
+        highlight: false,
+        data: {
+            alignment: "High",
+            income: "Stable / Moderate",
+            autonomy: "Low-Medium",
+            geo: "Low",
+        },
+        risk: "Lower Risk",
+        timeline: "1-2 Years",
+    },
+    {
+        id: "edtech",
+        title: "Ed-Tech Innovation",
+        role: "Product / Learning Design",
+        description:
+            "Product, instructional design, or learning experience roles at education technology companies.",
+        link: "#", // Placeholder or future page
+        highlight: false,
+        data: {
+            alignment: "Med-High",
+            income: "Stable / Med-High",
+            autonomy: "Low-Medium",
+            geo: "Medium",
+        },
+        risk: "Medium Risk",
+        timeline: "1-2 Years",
+    },
+];
+---
+
+<BaseLayout title="Career Paths">
+    <section class="mb-16">
+        <h1 class="text-6xl md:text-7xl font-bold mb-6">Career Paths</h1>
+        <p class="text-xl max-w-3xl opacity-70">
+            Evaluating three divergent strategic directions based on personal
+            strengths, market opportunity, and long-term goals.
+        </p>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {
+            paths.map((path) => (
+                <div
+                    class:list={[
+                        "relative p-8 border hover:shadow-xl transition-all duration-300 flex flex-col",
+                        path.highlight
+                            ? "bg-white border-accent-sage/50 shadow-md ring-1 ring-accent-sage/20"
+                            : "bg-white/40 border-text-primary/10 hover:border-text-primary/30",
+                    ]}
+                >
+                    {path.highlight && (
+                        <div class="absolute -top-3 left-8 bg-accent-sage text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-sm">
+                            Primary Path
+                        </div>
+                    )}
+
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold mb-2 leading-tight">
+                            {path.title}
+                        </h2>
+                        <span class="text-sm font-mono text-text-primary/60 block mb-4">
+                            {path.role}
+                        </span>
+                        <p class="text-sm leading-relaxed opacity-80 mb-6 min-h-[80px]">
+                            {path.description}
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 mb-8 flex-grow">
+                        {metrics.map((m) => (
+                            <div class="flex justify-between items-center text-sm border-b border-text-primary/5 pb-2">
+                                <span class="opacity-60">{m.label}</span>
+                                <span class="font-medium">
+                                    {path.data[m.key]}
+                                </span>
+                            </div>
+                        ))}
+                        <div class="flex justify-between items-center text-sm border-b border-text-primary/5 pb-2">
+                            <span class="opacity-60">Risk Profile</span>
+                            <span class="font-medium">{path.risk}</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm border-b border-text-primary/5 pb-2">
+                            <span class="opacity-60">Timeline</span>
+                            <span class="font-medium">{path.timeline}</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        {path.highlight ? (
+                            <a
+                                href={path.link}
+                                class="block w-full text-center bg-text-primary text-white py-4 font-bold tracking-wide hover:bg-accent-sage transition-colors"
+                            >
+                                Explore Strategy &rarr;
+                            </a>
+                        ) : (
+                            <span class="block w-full text-center border border-text-primary/20 py-4 font-bold tracking-wide opacity-50 cursor-not-allowed">
+                                Reference Only
+                            </span>
+                        )}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</BaseLayout>

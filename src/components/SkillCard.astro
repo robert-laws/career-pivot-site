@@ -1,0 +1,71 @@
+---
+interface Props {
+    skill: {
+        name: string;
+        category: string;
+        priority: string;
+        currentLevel: string;
+        acquisitionMethod: string;
+        targetDate: string;
+        status: string;
+        notes?: string;
+    };
+}
+
+const { skill } = Astro.props;
+
+const statusColors = {
+    "not-started": "bg-gray-200 text-gray-400",
+    "in-progress": "bg-yellow-100 text-yellow-700 border-yellow-200",
+    completed: "bg-green-100 text-green-700 border-green-200",
+};
+
+const priorityColors = {
+    critical: "text-red-700 font-bold",
+    important: "text-text-primary font-medium",
+    "nice-to-have": "text-text-primary/60",
+};
+---
+
+<div
+    class="bg-white border border-text-primary/10 p-6 hover:shadow-md transition-shadow"
+>
+    <div class="flex justify-between items-start mb-4">
+        <div>
+            <h3 class="font-bold text-lg mb-1">{skill.name}</h3>
+            <span class="text-xs font-mono uppercase tracking-widest opacity-50"
+                >{skill.category}</span
+            >
+        </div>
+        <span
+            class={`text-[10px] uppercase tracking-wider font-bold px-2 py-1 rounded border ${statusColors[skill.status] || "bg-gray-100"}`}
+        >
+            {skill.status.replace("-", " ")}
+        </span>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 text-sm mb-4 opacity-80">
+        <div>
+            <span class="block text-xs opacity-50">Priority</span>
+            <span class={priorityColors[skill.priority] || ""}
+                >{skill.priority}</span
+            >
+        </div>
+        <div>
+            <span class="block text-xs opacity-50">Target Date</span>
+            <span>{skill.targetDate}</span>
+        </div>
+        <div class="col-span-2">
+            <span class="block text-xs opacity-50">Strategy</span>
+            <span>{skill.acquisitionMethod}</span>
+        </div>
+    </div>
+
+    {
+        skill.notes && (
+            <div class="text-xs bg-bg-sage p-3 rounded text-text-primary/70 italic">
+                "{skill.notes}"
+            </div>
+        )
+    }
+</div>
